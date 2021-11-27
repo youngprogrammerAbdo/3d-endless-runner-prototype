@@ -8,6 +8,7 @@ public class Player : PlayerBehiviours
 	{
 		base.Update();
 	}
+	//End Game When enemy hit player
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.GetComponent<Enemy>()!=null) 

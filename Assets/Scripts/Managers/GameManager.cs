@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject endGameUI;
     public bool gameEnded=false;
     public float pathSidesValue = 2;
+    public float swipeLenght = 100;
+    [SerializeField] private AudioClip Lose;
+    private AudioSource sr;
     private void Start()
 	{
         PlayAgain.onClick.AddListener(playAgain);
-
+        sr = GetComponent<AudioSource>();
     }
     // Singleton Desgin Pattern To manage Game
 	private static GameManager _instance;
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void endTheGame() 
     {
+        sr.PlayOneShot(Lose);
         ObstaclesManager.Instance.StopCreatingObstacle();
         Time.timeScale = 0;
         endGameUI.SetActive(true);

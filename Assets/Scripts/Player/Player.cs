@@ -11,7 +11,7 @@ public class Player : PlayerBehiviours
 	//End Game When enemy hit player
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.GetComponent<Enemy>()!=null) 
+		if (other.GetComponent<Obstacle>()!=null) 
 		{
 			GameManager.Instance.endTheGame();
 			Debug.Log("Enemy Hit Me");
